@@ -1,0 +1,19 @@
+//src/prisma/schema/member.prisma
+model Member {
+  id        String  @id @default(uuid())
+  name      String
+  email     String  @unique
+  joinedAt  String
+
+  userId String? @unique
+  user    User?     @relation(fields: [userId], references: [id])
+
+  books     Book[]  // 1 Member -> banyak Book
+  borrows   Borrow[]
+
+
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  deletedAt   DateTime?
+  @@map("members")
+}

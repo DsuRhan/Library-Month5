@@ -1,0 +1,22 @@
+//src/prisma/schema/book.prisma
+model Book {
+  id          String   @id @default(uuid())
+  title       String
+  author      String
+  tahun       Int
+  stok        Int
+  description String?
+  cover       String?   // 👈 URL gambar
+
+  memberId    String?
+  member      Member?  @relation(fields: [memberId], references: [id])
+
+  borrowItems BorrowItem[]
+
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  deletedAt   DateTime?
+
+
+  @@map("books")
+}
