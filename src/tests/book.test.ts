@@ -2,13 +2,8 @@ import request from "supertest";
 import app from "../app";
 import jwt from "jsonwebtoken";
 import prisma from "../prisma";
-import path from "path";
 
 describe("BOOK API TEST", () => {
-  const userToken = jwt.sign(
-    { id: "user-id", role: "USER" },
-    process.env.JWT_SECRET || "secret_kunci_rahasia"
-  );
 
   const adminToken = jwt.sign(
     { id: "admin-id", role: "ADMIN" },

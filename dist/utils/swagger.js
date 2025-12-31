@@ -2,8 +2,7 @@
 import swaggerJsdoc from 'swagger-jsdoc';
 import dotenv from 'dotenv';
 dotenv.config();
-
-const options: swaggerJsdoc.Options = {
+const options = {
     definition: {
         openapi: '3.0.0',
         info: {
@@ -16,7 +15,7 @@ const options: swaggerJsdoc.Options = {
         },
         servers: [
             {
-                url: `api/`,
+                url: `http://localhost:${process.env.PORT || 3000}/api/v1`,
                 description: 'Development Server',
             },
         ],
@@ -38,7 +37,6 @@ const options: swaggerJsdoc.Options = {
     // PENTING: Tentukan file mana yang mengandung anotasi Swagger
     apis: ['./src/routes/*.ts'],
 };
-
 const swaggerSpec = swaggerJsdoc(options);
-
 export default swaggerSpec;
+//# sourceMappingURL=swagger.js.map
