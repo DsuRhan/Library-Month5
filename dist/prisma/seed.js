@@ -1,5 +1,4 @@
 import prisma from "../prisma";
-import bcrypt from "bcrypt";
 async function main() {
     console.log("🌱 Starting Seeding...");
     /* =========================
@@ -10,41 +9,9 @@ async function main() {
     // await prisma.member.deleteMany();
     // await prisma.user.deleteMany();
     /* =========================
-       2. Hash Password
-    ========================= */
-    const adminPassword = await bcrypt.hash("admin123", 10);
-    const memberPassword = await bcrypt.hash("member123", 10);
-    /* =========================
+  * =========================
        3. Seed ADMIN User
     ========================= */
-    const adminUser = await prisma.user.upsert({
-        where: { email: "admin@library.local" },
-        update: {},
-        create: {
-            email: "admin@library.local",
-            password: adminPassword,
-            role: "ADMIN"
-        }
-    });
-    /* =========================
-       4. Seed MEMBER User + Member Profile
-    ========================= */
-    const memberUser = await prisma.user.upsert({
-        where: { email: "member@library.local" },
-        update: {},
-        create: {
-            email: "member@library.local",
-            password: memberPassword,
-            role: "MEMBER",
-            member: {
-                create: {
-                    name: "Budi Santoso",
-                    email: "member@library.local",
-                    joinedAt: new Date().toISOString()
-                }
-            }
-        }
-    });
     /* =========================
        5. Seed Books Dummy
     ========================= */

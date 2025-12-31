@@ -8,7 +8,7 @@ export declare const register: (data: {
     updatedAt: Date;
     email: string;
     password: string;
-    role: import("../generated/enums").Role;
+    role: import("../generated/enums.js").Role;
 }>;
 export declare const login: (data: {
     email: string;
@@ -18,7 +18,7 @@ export declare const login: (data: {
     user: {
         id: string;
         email: string;
-        role: import("../generated/enums").Role;
+        role: import("../generated/enums.js").Role;
     };
 }>;
 //# sourceMappingURL=auth.service.d.ts.map

@@ -1,3 +1,3 @@
 import type { Request, Response, NextFunction } from 'express';
-export default function errorHandler(err: any, req: Request, res: Response, next: NextFunction): void;
+export default function errorHandler(err: any, _req: Request, res: Response, _next: NextFunction): void;
 //# sourceMappingURL=errorHandler.d.ts.map

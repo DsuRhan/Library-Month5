@@ -1,16 +1,16 @@
 //src/services/book.service.ts
-import * as bookRepo from '../repositories/book.repository';
+import * as bookRepo from "../repositories/book.repository.js";
 export const getAllBooks = async (params) => {
     const { page, limit, search, sortBy, sortOrder, available, yearFrom, yearTo } = params;
     const skip = (page - 1) * limit;
     const where = { deletedAt: null };
     if (search) {
         where.OR = [
-            { title: { contains: search, mode: 'insensitive' } },
-            { author: { contains: search, mode: 'insensitive' } }
+            { title: { contains: search, mode: "insensitive" } },
+            { author: { contains: search, mode: "insensitive" } }
         ];
     }
-    if (typeof available === 'boolean') {
+    if (typeof available === "boolean") {
         where.stok = available ? { gt: 0 } : { equals: 0 };
     }
     if (yearFrom || yearTo) {
@@ -20,7 +20,7 @@ export const getAllBooks = async (params) => {
         if (yearTo)
             where.tahun.lte = yearTo;
     }
-    const orderBy = sortBy ? { [sortBy]: sortOrder ?? 'desc' } : { createdAt: 'desc' };
+    const orderBy = sortBy ? { [sortBy]: sortOrder ?? "desc" } : { createdAt: "desc" };
     const books = await bookRepo.findAll(skip, limit, where, orderBy);
     const totalItems = await bookRepo.countAll(where);
     return {
@@ -33,7 +33,7 @@ export const getAllBooks = async (params) => {
 export const getBookById = async (id) => {
     const book = await bookRepo.findById(id);
     if (!book)
-        throw new Error('Book not found');
+        throw new Error("Book not found");
     return book;
 };
 export const createBook = async (data) => {

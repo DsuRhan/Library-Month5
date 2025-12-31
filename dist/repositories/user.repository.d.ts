@@ -4,7 +4,7 @@ export declare const findByEmail: (email: string) => Promise<{
     updatedAt: Date;
     email: string;
     password: string;
-    role: import("../generated/enums").Role;
+    role: import("../generated/enums.js").Role;
 } | null>;
 export declare const findById: (id: string) => Promise<{
     id: string;
@@ -12,7 +12,7 @@ export declare const findById: (id: string) => Promise<{
     updatedAt: Date;
     email: string;
     password: string;
-    role: import("../generated/enums").Role;
+    role: import("../generated/enums.js").Role;
 } | null>;
 export declare const create: (data: {
     email: string;
@@ -24,6 +24,6 @@ export declare const create: (data: {
     updatedAt: Date;
     email: string;
     password: string;
-    role: import("../generated/enums").Role;
+    role: import("../generated/enums.js").Role;
 }>;
 //# sourceMappingURL=user.repository.d.ts.map

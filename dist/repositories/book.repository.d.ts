@@ -1,4 +1,4 @@
-import type { Prisma } from '../generated/client';
+import type { Prisma } from "../generated/client.js";
 export declare const findAll: (skip: number, take: number, where: Prisma.BookWhereInput, orderBy: Prisma.BookOrderByWithRelationInput) => Promise<{
     id: string;
     title: string;

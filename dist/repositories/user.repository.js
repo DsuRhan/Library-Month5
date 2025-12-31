@@ -1,5 +1,5 @@
 //src/repositories/user.repository.ts
-import prisma from '../prisma';
+import prisma from '../prisma.js';
 export const findByEmail = async (email) => {
     return prisma.user.findUnique({
         where: { email }

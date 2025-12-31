@@ -1,13 +1,13 @@
 //src/services/member.service.ts
-import * as memberRepo from '../repositories/member.repository';
+import * as memberRepo from "../repositories/member.repository.js";
 export const getAllMembers = async (page, limit, search) => {
     const skip = (page - 1) * limit;
     const where = {
         deletedAt: null,
         ...(search && {
             OR: [
-                { name: { contains: search, mode: 'insensitive' } },
-                { email: { contains: search, mode: 'insensitive' } }
+                { name: { contains: search, mode: "insensitive" } },
+                { email: { contains: search, mode: "insensitive" } }
             ]
         })
     };
@@ -23,7 +23,7 @@ export const getAllMembers = async (page, limit, search) => {
 export const getMemberById = async (id) => {
     const member = await memberRepo.findById(id);
     if (!member)
-        throw new Error('Member not found');
+        throw new Error("Member not found");
     return member;
 };
 export const createMember = async (data) => {

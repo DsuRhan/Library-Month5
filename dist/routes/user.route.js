@@ -1,9 +1,9 @@
 //src/routes/user.route.ts
 import { Router } from "express";
-import { verifyToken, adminOnly } from "../middlewares/verifyToken";
-import { validate } from "../middlewares/validate";
+import { verifyToken, adminOnly } from "../middlewares/verifyToken.js";
+import { validate } from "../middlewares/validate.js";
 import { param } from "express-validator";
-import prisma from "../prisma";
+import prisma from "../prisma.js";
 const router = Router();
 /**
  * @swagger

@@ -1,6 +1,6 @@
-import * as BookService from '../services/book.service';
-import { asyncHandler } from '../utils/async.handler';
-import { successResponse } from '../utils/response';
+import * as BookService from "../services/book.service.js";
+import { asyncHandler } from "../utils/async.handler.js";
+import { successResponse } from "../utils/response.js";
 /* =========================
    GET ALL
 ========================= */
@@ -14,13 +14,13 @@ export const getAllBooks = asyncHandler(async (req, res) => {
         search: req.query.search,
         sortBy: req.query.sortBy,
         sortOrder: req.query.sortOrder,
-        ...(req.query.available === 'true' && { available: true }),
-        ...(req.query.available === 'false' && { available: false }),
+        ...(req.query.available === "true" && { available: true }),
+        ...(req.query.available === "false" && { available: false }),
         ...(req.query.yearFrom && { yearFrom: Number(req.query.yearFrom) }),
         ...(req.query.yearTo && { yearTo: Number(req.query.yearTo) })
     };
     const result = await BookService.getAllBooks(params);
-    return successResponse(res, 'Daftar buku', result.books, {
+    return successResponse(res, "Daftar buku", result.books, {
         page: result.currentPage,
         limit,
         total: result.totalItems,
@@ -32,7 +32,7 @@ export const getAllBooks = asyncHandler(async (req, res) => {
 ========================= */
 export const getBookById = asyncHandler(async (req, res) => {
     const book = await BookService.getBookById(String(req.params.id));
-    return successResponse(res, 'Buku ditemukan', book);
+    return successResponse(res, "Buku ditemukan", book);
 });
 /* =========================
    CREATE
@@ -40,7 +40,7 @@ export const getBookById = asyncHandler(async (req, res) => {
 export const createBook = asyncHandler(async (req, res) => {
     const file = req.file;
     if (!file) {
-        return res.status(400).json({ message: 'Cover buku wajib diupload' });
+        return res.status(400).json({ message: "Cover buku wajib diupload" });
     }
     const book = await BookService.createBook({
         title: req.body.title,
@@ -50,7 +50,7 @@ export const createBook = asyncHandler(async (req, res) => {
         description: req.body.description ?? null,
         cover: `/public/uploads/${file.filename}`
     });
-    return successResponse(res, 'Buku berhasil ditambahkan', book, null, 201);
+    return successResponse(res, "Buku berhasil ditambahkan", book, null, 201);
 });
 /* =========================
    UPDATE
@@ -64,13 +64,13 @@ export const updateBook = asyncHandler(async (req, res) => {
         ...(file && { cover: `/public/uploads/${file.filename}` })
     };
     const book = await BookService.updateBook(String(req.params.id), data);
-    return successResponse(res, 'Buku berhasil diupdate', book);
+    return successResponse(res, "Buku berhasil diupdate", book);
 });
 /* =========================
    DELETE
 ========================= */
 export const deleteBook = asyncHandler(async (req, res) => {
     const book = await BookService.deleteBook(String(req.params.id));
-    return successResponse(res, 'Buku berhasil dihapus', book);
+    return successResponse(res, "Buku berhasil dihapus", book);
 });
 //# sourceMappingURL=book.controller.js.map

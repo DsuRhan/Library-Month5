@@ -1,5 +1,5 @@
 //src/repositories/book.repository.ts
-import prisma from '../prisma';
+import prisma from '../prisma.js';
 export const findAll = async (skip, take, where, orderBy) => {
     return prisma.book.findMany({
         skip,

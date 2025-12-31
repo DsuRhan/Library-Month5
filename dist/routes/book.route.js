@@ -1,10 +1,10 @@
 //src/routes/book.route.ts
 import { Router } from "express";
-import { getAllBooks, getBookById, createBook, updateBook, deleteBook } from "../controllers/book.controller";
-import { createBookValidation, updateBookValidation, bookIdValidation, } from "../validations/book.validation";
-import { validate, paginationValidation } from "../middlewares/validate";
-import { verifyToken, adminOnly } from "../middlewares/verifyToken";
-import { upload } from "../middlewares/upload.middleware";
+import { getAllBooks, getBookById, createBook, updateBook, deleteBook } from "../controllers/book.controller.js";
+import { createBookValidation, updateBookValidation, bookIdValidation, } from "../validations/book.validation.js";
+import { validate, paginationValidation } from "../middlewares/validate.js";
+import { verifyToken, adminOnly } from "../middlewares/verifyToken.js";
+import { upload } from "../middlewares/upload.middleware.js";
 const router = Router();
 /**
  * @swagger

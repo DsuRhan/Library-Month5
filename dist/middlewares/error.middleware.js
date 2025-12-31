@@ -1,5 +1,5 @@
-import { ApiError } from "../utils/api.error";
-export function errorMiddleware(err, req, res, _next) {
+import { ApiError } from "../utils/api.error.js";
+export function errorMiddleware(err, _req, res, _next) {
     if (err instanceof ApiError) {
         return res.status(err.statusCode).json({
             success: false,

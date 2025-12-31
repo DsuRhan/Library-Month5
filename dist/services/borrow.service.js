@@ -1,6 +1,6 @@
 //src/services/borrow.service.ts
-import prisma from '../prisma';
-import * as borrowRepo from '../repositories/borrow.repository';
+import prisma from "../prisma.js";
+import * as borrowRepo from "../repositories/borrow.repository.js";
 const BORROW_DAYS = 7;
 const FINE_PER_DAY = 2000;
 /* =========================
@@ -8,7 +8,7 @@ const FINE_PER_DAY = 2000;
 ========================= */
 export const borrowBooks = async (memberId, items) => {
     if (!Array.isArray(items) || items.length === 0) {
-        throw new Error('Borrow items cannot be empty');
+        throw new Error("Borrow items cannot be empty");
     }
     return prisma.$transaction(async (tx) => {
         for (const item of items) {
@@ -16,7 +16,7 @@ export const borrowBooks = async (memberId, items) => {
                 where: { id: item.bookId, deletedAt: null }
             });
             if (!book)
-                throw new Error('Book not found');
+                throw new Error("Book not found");
             if (book.stok < item.qty) {
                 throw new Error(`Stok buku "${book.title}" tidak cukup`);
             }
@@ -30,7 +30,7 @@ export const borrowBooks = async (memberId, items) => {
         return borrowRepo.createBorrow({
             member: { connect: { id: memberId } },
             dueDate,
-            status: 'BORROWED',
+            status: "BORROWED",
             items: {
                 create: items.map((i) => ({
                     book: { connect: { id: i.bookId } },
@@ -47,9 +47,9 @@ export const returnBorrow = async (borrowId) => {
     return prisma.$transaction(async (tx) => {
         const borrow = await borrowRepo.findByIdTx(borrowId, tx);
         if (!borrow)
-            throw new Error('Borrow record not found');
-        if (borrow.status === 'RETURNED') {
-            throw new Error('Borrow already returned');
+            throw new Error("Borrow record not found");
+        if (borrow.status === "RETURNED") {
+            throw new Error("Borrow already returned");
         }
         for (const item of borrow.items) {
             await tx.book.update({
@@ -64,7 +64,7 @@ export const returnBorrow = async (borrowId) => {
             fine = diffDays * FINE_PER_DAY;
         }
         return borrowRepo.updateReturn(borrowId, {
-            status: 'RETURNED',
+            status: "RETURNED",
             returnedAt: now,
             fine
         }, tx);
@@ -95,7 +95,7 @@ export const getAllBorrowings = async (filter) => {
         where.member = {
             name: {
                 contains: filter.memberName,
-                mode: 'insensitive'
+                mode: "insensitive"
             }
         };
     }

@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { borrowBooks, returnBooks, getMyBorrowings, getAllBorrowings } from "../controllers/borrow.controller";
-import { verifyToken, adminOnly } from "../middlewares/verifyToken";
+import { borrowBooks, returnBooks, getMyBorrowings, getAllBorrowings } from "../controllers/borrow.controller.js";
+import { verifyToken, adminOnly } from "../middlewares/verifyToken.js";
 const router = Router();
 /**
  * @swagger

@@ -14,7 +14,7 @@
  * model files in the `model` directory!
  */
 import * as runtime from "@prisma/client/runtime/client";
-import {} from "./class";
+import {} from "./class.js";
 /**
  * Prisma Errors
  */
@@ -68,80 +68,80 @@ export const JsonNull = runtime.JsonNull;
  */
 export const AnyNull = runtime.AnyNull;
 export const ModelName = {
-    Book: 'Book',
-    Borrow: 'Borrow',
-    BorrowItem: 'BorrowItem',
-    Member: 'Member',
-    User: 'User'
+    Book: "Book",
+    Borrow: "Borrow",
+    BorrowItem: "BorrowItem",
+    Member: "Member",
+    User: "User"
 };
 /**
  * Enums
  */
 export const TransactionIsolationLevel = runtime.makeStrictEnum({
-    ReadUncommitted: 'ReadUncommitted',
-    ReadCommitted: 'ReadCommitted',
-    RepeatableRead: 'RepeatableRead',
-    Serializable: 'Serializable'
+    ReadUncommitted: "ReadUncommitted",
+    ReadCommitted: "ReadCommitted",
+    RepeatableRead: "RepeatableRead",
+    Serializable: "Serializable"
 });
 export const BookScalarFieldEnum = {
-    id: 'id',
-    title: 'title',
-    author: 'author',
-    tahun: 'tahun',
-    stok: 'stok',
-    description: 'description',
-    cover: 'cover',
-    memberId: 'memberId',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt',
-    deletedAt: 'deletedAt'
+    id: "id",
+    title: "title",
+    author: "author",
+    tahun: "tahun",
+    stok: "stok",
+    description: "description",
+    cover: "cover",
+    memberId: "memberId",
+    createdAt: "createdAt",
+    updatedAt: "updatedAt",
+    deletedAt: "deletedAt"
 };
 export const BorrowScalarFieldEnum = {
-    id: 'id',
-    memberId: 'memberId',
-    status: 'status',
-    borrowedAt: 'borrowedAt',
-    dueDate: 'dueDate',
-    returnedAt: 'returnedAt',
-    fine: 'fine',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    id: "id",
+    memberId: "memberId",
+    status: "status",
+    borrowedAt: "borrowedAt",
+    dueDate: "dueDate",
+    returnedAt: "returnedAt",
+    fine: "fine",
+    createdAt: "createdAt",
+    updatedAt: "updatedAt"
 };
 export const BorrowItemScalarFieldEnum = {
-    id: 'id',
-    borrowId: 'borrowId',
-    bookId: 'bookId',
-    qty: 'qty'
+    id: "id",
+    borrowId: "borrowId",
+    bookId: "bookId",
+    qty: "qty"
 };
 export const MemberScalarFieldEnum = {
-    id: 'id',
-    name: 'name',
-    email: 'email',
-    joinedAt: 'joinedAt',
-    userId: 'userId',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt',
-    deletedAt: 'deletedAt'
+    id: "id",
+    name: "name",
+    email: "email",
+    joinedAt: "joinedAt",
+    userId: "userId",
+    createdAt: "createdAt",
+    updatedAt: "updatedAt",
+    deletedAt: "deletedAt"
 };
 export const UserScalarFieldEnum = {
-    id: 'id',
-    email: 'email',
-    password: 'password',
-    role: 'role',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    id: "id",
+    email: "email",
+    password: "password",
+    role: "role",
+    createdAt: "createdAt",
+    updatedAt: "updatedAt"
 };
 export const SortOrder = {
-    asc: 'asc',
-    desc: 'desc'
+    asc: "asc",
+    desc: "desc"
 };
 export const QueryMode = {
-    default: 'default',
-    insensitive: 'insensitive'
+    default: "default",
+    insensitive: "insensitive"
 };
 export const NullsOrder = {
-    first: 'first',
-    last: 'last'
+    first: "first",
+    last: "last"
 };
 export const defineExtension = runtime.Extensions.defineExtension;
 //# sourceMappingURL=prismaNamespace.js.map

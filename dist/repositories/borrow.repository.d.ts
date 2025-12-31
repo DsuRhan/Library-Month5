@@ -1,4 +1,4 @@
-import type { Prisma } from '../generated/client';
+import type { Prisma } from "../generated/client.js";
 export declare const createBorrow: (data: Prisma.BorrowCreateInput, tx: Prisma.TransactionClient) => Promise<{
     member: {
         id: string;
@@ -35,7 +35,7 @@ export declare const createBorrow: (data: Prisma.BorrowCreateInput, tx: Prisma.T
     memberId: string;
     createdAt: Date;
     updatedAt: Date;
-    status: import("../generated/enums").BorrowStatus;
+    status: import("../generated/enums.js").BorrowStatus;
     borrowedAt: Date;
     dueDate: Date;
     returnedAt: Date | null;
@@ -77,7 +77,7 @@ export declare const findByIdTx: (id: string, tx: Prisma.TransactionClient) => P
     memberId: string;
     createdAt: Date;
     updatedAt: Date;
-    status: import("../generated/enums").BorrowStatus;
+    status: import("../generated/enums.js").BorrowStatus;
     borrowedAt: Date;
     dueDate: Date;
     returnedAt: Date | null;
@@ -109,7 +109,7 @@ export declare const findByMemberId: (memberId: string) => Promise<({
     memberId: string;
     createdAt: Date;
     updatedAt: Date;
-    status: import("../generated/enums").BorrowStatus;
+    status: import("../generated/enums.js").BorrowStatus;
     borrowedAt: Date;
     dueDate: Date;
     returnedAt: Date | null;
@@ -151,7 +151,7 @@ export declare const findAll: () => Promise<({
     memberId: string;
     createdAt: Date;
     updatedAt: Date;
-    status: import("../generated/enums").BorrowStatus;
+    status: import("../generated/enums.js").BorrowStatus;
     borrowedAt: Date;
     dueDate: Date;
     returnedAt: Date | null;
@@ -162,7 +162,7 @@ export declare const updateReturn: (id: string, data: Prisma.BorrowUpdateInput, 
     memberId: string;
     createdAt: Date;
     updatedAt: Date;
-    status: import("../generated/enums").BorrowStatus;
+    status: import("../generated/enums.js").BorrowStatus;
     borrowedAt: Date;
     dueDate: Date;
     returnedAt: Date | null;
@@ -204,7 +204,7 @@ export declare const findAllWithFilter: (where: Prisma.BorrowWhereInput) => Prom
     memberId: string;
     createdAt: Date;
     updatedAt: Date;
-    status: import("../generated/enums").BorrowStatus;
+    status: import("../generated/enums.js").BorrowStatus;
     borrowedAt: Date;
     dueDate: Date;
     returnedAt: Date | null;

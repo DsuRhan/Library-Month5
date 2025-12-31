@@ -1,8 +1,8 @@
 // services/auth.service.ts
-import * as userRepo from '../repositories/user.repository';
-import prisma from '../prisma';
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
+import * as userRepo from "../repositories/user.repository.js";
+import prisma from "../prisma.js";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 const JWT_SECRET = process.env.JWT_SECRET;
 /* =========================
    REGISTER (MEMBER)
@@ -10,7 +10,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 export const register = async (data) => {
     const existingUser = await userRepo.findByEmail(data.email);
     if (existingUser) {
-        throw new Error('Email already registered');
+        throw new Error("Email already registered");
     }
     const hashedPassword = await bcrypt.hash(data.password, 10);
     return prisma.$transaction(async (tx) => {
@@ -18,7 +18,7 @@ export const register = async (data) => {
             data: {
                 email: data.email,
                 password: hashedPassword,
-                role: 'MEMBER'
+                role: "MEMBER"
             }
         });
         await tx.member.create({
@@ -38,14 +38,14 @@ export const register = async (data) => {
 export const login = async (data) => {
     const user = await userRepo.findByEmail(data.email);
     if (!user)
-        throw new Error('Invalid credentials');
+        throw new Error("Invalid credentials");
     const isMatch = await bcrypt.compare(data.password, user.password);
     if (!isMatch)
-        throw new Error('Invalid credentials');
+        throw new Error("Invalid credentials");
     const token = jwt.sign({
         id: user.id,
         role: user.role
-    }, JWT_SECRET, { expiresIn: '1d' });
+    }, JWT_SECRET, { expiresIn: "1d" });
     return {
         token,
         user: {

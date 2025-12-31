@@ -1,6 +1,6 @@
 import request from "supertest";
-import app from "../app";
-import prisma from "../prisma";
+import app from "../app.js";
+import prisma from "../prisma.js";
 import jwt from "jsonwebtoken";
 describe("MEMBER API TEST", () => {
     const adminToken = jwt.sign({ id: "admin-id", role: "ADMIN" }, process.env.JWT_SECRET || "secret_kunci_rahasia");

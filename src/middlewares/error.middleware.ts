@@ -3,7 +3,7 @@ import { ApiError } from "../utils/api.error";
 
 export function errorMiddleware(
   err: ApiError | Error,
-  req: Request,
+  _req: Request,
   res: Response,
   _next: NextFunction
 ) {

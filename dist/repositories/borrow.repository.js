@@ -1,5 +1,5 @@
 //src/repositories/borrow.repository.ts
-import prisma from '../prisma';
+import prisma from '../prisma.js';
 export const createBorrow = async (data, tx) => {
     return tx.borrow.create({
         data,

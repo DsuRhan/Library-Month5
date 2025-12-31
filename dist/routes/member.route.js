@@ -1,9 +1,9 @@
 //src/repositories/member.repository.ts
 import { Router } from "express";
-import { getAllMembers, getMemberById, updateMember, deleteMember } from "../controllers/member.controller";
-import { updateMemberValidation, memberIdValidation, } from "../validations/member.validation";
-import { validate, paginationValidation } from "../middlewares/validate";
-import { verifyToken, adminOnly } from "../middlewares/verifyToken";
+import { getAllMembers, getMemberById, updateMember, deleteMember } from "../controllers/member.controller.js";
+import { updateMemberValidation, memberIdValidation, } from "../validations/member.validation.js";
+import { validate, paginationValidation } from "../middlewares/validate.js";
+import { verifyToken, adminOnly } from "../middlewares/verifyToken.js";
 const router = Router();
 /**
  * @swagger

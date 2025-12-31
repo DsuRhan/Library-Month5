@@ -1,10 +1,10 @@
-import type { Book, Prisma } from '../generated/client';
+import type { Book, Prisma } from "../generated/client.js";
 interface FindAllParams {
     page: number;
     limit: number;
     search?: string;
     sortBy?: string;
-    sortOrder?: 'asc' | 'desc';
+    sortOrder?: "asc" | "desc";
     available?: boolean;
     yearFrom?: number;
     yearTo?: number;

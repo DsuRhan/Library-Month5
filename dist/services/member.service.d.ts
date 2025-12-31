@@ -1,4 +1,4 @@
-import type { Member, Prisma } from '../generated/client';
+import type { Member, Prisma } from "../generated/client.js";
 export declare const getAllMembers: (page: number, limit: number, search?: string) => Promise<{
     members: {
         id: string;
