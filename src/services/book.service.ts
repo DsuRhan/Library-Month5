@@ -1,5 +1,4 @@
 //src/services/book.service.ts
-// src/services/book.service.ts
 import * as bookRepo from '../repositories/book.repository';
 import type { Book, Prisma } from '../generated/client';
 
