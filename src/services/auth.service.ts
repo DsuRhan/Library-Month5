@@ -1,6 +1,6 @@
 // services/auth.service.ts
 import * as userRepo from '../repositories/user.repository';
-import prisma from '../prisma';
+import prisma from '../database';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 

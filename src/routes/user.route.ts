@@ -3,7 +3,7 @@ import { Router } from "express";
 import { verifyToken, adminOnly } from "../middlewares/verifyToken";
 import { validate } from "../middlewares/validate";
 import { param } from "express-validator";
-import prisma from "../prisma";
+import prisma from "../database";
 import type { Request, Response } from "express";
 
 const router = Router();

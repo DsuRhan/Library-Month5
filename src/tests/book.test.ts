@@ -1,7 +1,7 @@
 import request from "supertest";
 import app from "../app";
 import jwt from "jsonwebtoken";
-import prisma from "../prisma";
+import prisma from "../database";
 
 describe("BOOK API TEST", () => {
 

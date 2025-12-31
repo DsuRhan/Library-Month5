@@ -1,6 +1,6 @@
 import request from "supertest";
 import app from "../app";
-import prisma from "../prisma";
+import prisma from "../database";
 import jwt from "jsonwebtoken";
 
 describe("MEMBER API TEST", () => {

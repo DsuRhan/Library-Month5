@@ -1,5 +1,5 @@
 //src/services/borrow.service.ts
-import prisma from '../prisma';
+import prisma from '../database';
 import * as borrowRepo from '../repositories/borrow.repository';
 import type { Prisma } from '#generated/client';
 

@@ -1,6 +1,6 @@
 //src/repositories/member.repository.tsimport prisma from "../prisma";
 import type { Prisma } from "../generated/client";
-import prisma from "../prisma";
+import prisma from "../database";
 
 /* =========================
    FIND ALL (PAGINATION)
